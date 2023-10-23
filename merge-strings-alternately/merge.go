@@ -3,11 +3,12 @@ package leetmerge
 func mergeAlternately(word1 string, word2 string) string {
 	len1 := len(word1)
 	len2 := len(word2)
-	res := make([]byte, len1+len2)
+	combinedLen := len1 + len2
+	res := [200]byte{}
 	onePos := 0
 	twoPos := 0
 	next := 1
-	for i := 0; i < len(res); i++ {
+	for i := 0; i < combinedLen; i++ {
 		if next == 1 {
 			res[i] = word1[onePos]
 			onePos++
@@ -22,5 +23,5 @@ func mergeAlternately(word1 string, word2 string) string {
 			}
 		}
 	}
-	return string(res)
+	return string(res[:combinedLen])
 }

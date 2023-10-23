@@ -16,3 +16,9 @@ func TestMerge(t *testing.T) {
 	result = mergeAlternately("abcd", "qp")
 	require.Equal(t, "aqbpcd", result)
 }
+
+func BenchmarkMerge(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		mergeAlternately("abcdefghijklmnopq", "123456789012345678901234567890")
+	}
+}
