@@ -10,11 +10,5 @@ func twoSum(nums []int, target int) []int {
 		}
 		meets[target-nums[i]] = i
 	}
-
-	for i := range nums {
-		if idx, ok := meets[nums[i]]; ok && idx != i {
-			return []int{i, idx}
-		}
-	}
 	return nil
 }
